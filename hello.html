@@ -1,0 +1,110 @@
+<html>
+
+<body>
+
+    <canvas width="600" height="600"></canvas>
+
+    <script>
+        let canvas = document.querySelector('canvas');
+        let context = canvas.getContext('2d');
+
+        context.fillStyle = 'pink';
+        // context.fillRect(100, 100, 400, 400);
+
+        context.lineWidth = 4;
+        context.beginPath();
+        context.rect(100, 100, 400, 400)
+        //context.stroke();
+
+        context.beginPath();
+        context.arc(300, 300, 100, 0, Math.PI * 2);
+        //context.stroke();
+
+        const width = 80;
+        const height = 60;
+        const gap = 20
+        let x, y;
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                x = 100 + (width + gap) * i;
+                y = 100 + (height + gap) * j;
+
+                context.beginPath();
+                context.rect(x, y, width, height);
+                context.stroke();
+
+                if (Math.random() > 0.5) {
+
+                    context.beginPath();
+                    context.rect(x + 8, y + 8, width - 16, height - 16);
+                    context.stroke();
+                }
+            }
+        }
+
+
+
+
+
+        let adjective = 'fun?';
+        let sentence = 'Is coding not an amazing amount of ' + adjective;
+
+        function saySomething(param) {
+            console.log(param);
+        }
+
+        saySomething(sentence)
+
+        function add(a, b) {
+            return a + b;
+        }
+
+        let result = add(8, 12);
+        console.log(result);
+
+        let multiply = (a, b) => {
+            return a * b;
+        }
+
+        console.log(multiply(8, 12));
+
+        let numerator = 16478
+        let denominator = 7
+
+        console.log(`The fraction of ${numerator}/${denominator} as a decimal number is ${changeFractionToDecimalNumber(numerator, denominator)}`)
+
+        function changeFractionToDecimalNumber(numerator, denominator) {
+            return numerator / denominator
+        }
+
+        console.log(changeFractionToDecimalNumber(3, 7))
+
+        function changeDecimalNumberToFraction(decimalNumber) {
+            // 2.5
+            // 6.43
+            // 5.678
+            // On the first line there is one place beyond the dot, which is the decimal point. On the second line there are two decimal places beyond the dot. On the third line there are three. In each one of those lines you can count how many places there are beyond the dot, then you can say 1 + however many places there are equals your demoninator. For the numerator you simply take the numbers beyond the decimal point and turn it into a whole numer. Say, 0.56 is the same as 56/100.
+        }
+
+        let years = []
+        let menu = ['starter', 'main', 'dessert', 'drinks', 'sides'];
+
+        for (let i = 0; i < menu.length; i++) {
+            console.log(menu[i]);
+        }
+
+        for (let i = 0; i < 10; i++) {
+            years.push(2040 + i)
+        }
+
+        console.log(years);
+
+        menu.forEach(item => {
+            console.log(item);
+        })
+
+    </script>
+
+</body>
+
+</html>
