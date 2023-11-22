@@ -1,0 +1,134 @@
+<html>
+
+<body>
+    <canvas width="600" height="600"></canvas>
+    <script>
+        let canvas = document.querySelector('canvas');
+        let pen = canvas.getContext('2d');
+
+        // pen.fillStyle = 'magenta'
+        // pen.fillRect(100, 100, 400, 400);
+
+        
+        // pen.beginPath();
+        // pen.rect(100, 100, 400, 400);
+        // pen.stroke();
+        
+        // pen.beginPath();
+        // pen.arc(300, 300, 100, 0, Math.PI * 2);
+        // pen.stroke();
+        
+        function changeColors(pen, x, y, width, height, color) {
+            // I want to get a gradient or colors that i set for my drawing
+            // I want every other square to be pink
+            // I need to know how to: set color to pink, select every other square
+            pen.beginPath();
+                    pen.lineWidth = 3;
+                    pen.rect(x, y, width, height);
+                    pen.strokeStyle = color
+                    pen.stroke();
+                    
+                    if (i > 0 && i < 4) {
+                        pen.lineWidth = 2;
+                        pen.beginPath();
+                        pen.rect(x + 8, y + 8, width - 16, height - 16);
+                        pen.strokeStyle = color
+                        pen.stroke();
+
+                    }
+        }
+        
+        let counter = 0
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                counter++
+                let width = 60;
+                let height = 60;
+                let gap = 20;
+                let x = 100 + (width + gap) * i;
+                let y = 100 + (height + gap) * j;
+                // use modulo 2 to target every even item... somehow
+                // meaning, change its color if it is even
+                // OHHHHHHH.... "if"!!!!
+
+
+                // Dad taught me about the principle of DRY: Don't Repeat Yourself
+                if (counter % 2 === 0) {
+                    let color = 'blue'
+                    changeColors(pen, x, y, width, height, color)
+                } else {
+                    let color = 'magenta'
+                    changeColors(pen, x, y, width, height, color)
+                }
+            }
+
+        }
+
+
+
+        let year = 2042
+        let nextYear = year + 1;
+
+        let dinner = 'soup';
+        let sentence = 'Tonight, dinner will be ' + dinner;
+
+        function saySomething(param) {
+            console.log(param)
+
+        }
+
+        saySomething(sentence);
+
+        function add(a, b) {
+            return a + b;
+        }
+
+        let result = add(5, 7);
+        console.log(result);
+
+        let multiply = (a, b) => {
+            return a * b;
+        }
+
+        console.log(multiply(5, 7));
+
+        let years = [];
+        let menu = ['starter', 'main', 'dessert', 'drinks'];
+
+        for (let i = 0; i < menu.length; i++) {
+            console.log(menu[i]);
+        }
+
+        for (let i = 0; i < 10; i++) {
+            years.push(2040 + i);
+        }
+
+        console.log(years);
+
+
+
+
+
+        // Math.random()
+
+        // pen.fillStyle = 'pink';
+
+        // let color = getColor
+
+        // const getColor (v) {
+        // if (v < )
+        // }
+
+
+
+
+        // let color = 'red';
+        // let color2 = 'pink';
+        // let colors =
+
+        // const colors
+
+    </script>
+</body>
+
+</html>
