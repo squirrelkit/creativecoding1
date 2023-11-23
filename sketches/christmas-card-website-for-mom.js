@@ -7,9 +7,9 @@ const settings = {
 
 let manager;
 
-let text = 'A';
+let text = '🎄';
 let fontSize = 1200;
-let fontFamily = 'Gabriola';
+let fontFamily = 'Serif';
 
 const typeCanvas = document.createElement('canvas');
 const typeContext = typeCanvas.getContext('2d');
@@ -27,7 +27,7 @@ const sketch = ({ context, width, height }) => {
     typeContext.fillStyle = 'black';
     typeContext.fillRect(0, 0, cols, rows);
 
-    fontSize = cols * 1.2;
+    fontSize = cols * .5;
 
     typeContext.fillStyle = 'white';
 
@@ -79,7 +79,7 @@ const sketch = ({ context, width, height }) => {
       const glyph = getGlyph(r);
 
       context.font = `${cell * 2}px ${fontFamily}`;
-      if (Math.random() < 0.1)context.font = `${cell * 4}px ${fontFamily}`;
+      if (Math.random() < 0.01)context.font = `${cell * 4}px ${fontFamily}`;
 
       context.fillStyle = `white`;
 
@@ -102,11 +102,17 @@ const sketch = ({ context, width, height }) => {
 
 const getGlyph = (v) => {
   if (v < 50) return '';
-  if (v < 100) return 'kit';
+  if (v < 100) return '-';
   if (v < 150) return '+';
-  if (v < 200) return 'cat';
+  if (v < 200) return '^';
 
   const glyphs = '_= /'.split('');
+
+  // TODO:
+  // [ ] Look up Unicode list of characters/glyphs
+  // [ ] Colors
+  // [ ] Interactivity
+  // [ ] Learn how to make a webpage
 
 
   return random.pick(glyphs);
