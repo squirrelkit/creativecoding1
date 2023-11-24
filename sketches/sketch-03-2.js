@@ -10,7 +10,7 @@ const settings = {
 function sketch({ context, width, height }) {
   const agents = [];
 
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 100; i++) {
     const x = random.range(0, width);
     const y = random.range(0, height);
 
@@ -69,8 +69,8 @@ class Agent {
   constructor(x, y) {
     this.pos = new Vector(x, y);
     this.vel = new Vector(random.range(-2, 4), random.range(-2, 4));
-    this.radius = random.range(6, 16);
-    this.color = `hsl(${Math.random() * 360}, 80%, 50%)`;
+    this.radius = random.range(120, 140);
+    this.hue = Math.random() * 360;
     console.log("🚀 ~ file: sketch-03-2.js:75 ~ Agent ~ constructor ~ this:", this)
   }
 
@@ -89,6 +89,9 @@ class Agent {
   draw(context) {
     // Math.random() * 255;
 
+    this.hue++;
+
+
 
     context.save();
     context.translate(this.pos.x, this.pos.y);
@@ -96,8 +99,8 @@ class Agent {
     context.lineWidth = 5;
 
     context.beginPath();
-    context.arc(0, 0, this.radius, 0, Math.PI * 2);
-    context.strokeStyle = this.color;
+    context.rect(0, 0, this.radius, 0, Math.PI * 2);
+    context.strokeStyle = `hsl(${this.hue}, 80%, 50%)`;
     // context.strokeStyle = 'hsl(' + Math.random() * 360 + ', 80%, 50%)';
       
       
@@ -107,11 +110,11 @@ class Agent {
     // I go back and check my questions to make sure that they are correct and to the point
 
     // So, what is line 96 doing?
-    // It is making the arc stroke color random, and it changing the color quickly
-    // What is HSL?
+    // It is making the rect stroke color random, and it changing the color quickly
+    // What is 
     // HSL stands for the hue, the saturation, and the lightness
     // What do I want to do?
-    // I want to get the color of each arc to change gradually
+    // I want to get the color of each rect to change gradually
     // How do I do that?
     // I set 
 
